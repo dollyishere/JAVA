@@ -1,0 +1,56 @@
+테이블명 : employee (생성자 포함)
+필드명
+empNo  : 사원 고유번호
+empName  : 사원이름
+job  : 직급
+mgr  : 직급번호
+hireDate  : 입사일
+sale  : 급여
+commission : 성과급
+deptNo  : 부서번호
+
+
+테이블 생성 시, 주석붙이는 방법
+create table sample(
+seq_no int(4) auto_increment,
+empNo int(2) not null, 		/* 사원 고유번호 */
+empName varchar(20) not null, 	/*사원이름*/
+job varchar(20), 			/*직급*/
+mgr char(2), 			/*직급번호*/
+hireDate char(10) not null,		/*입사일*/
+sale int(4) not null, 			/*급여*/
+commission int(4), 			/*성과급*/
+deptNo int(2), 			/*부서번호*/
+primary key(seq_no, empNo)
+);
+
+
+
+create table employee (
+seq_no int(4) auto_increment,
+empNo int(2) not null, 
+empName varchar(20) not null, 
+job varchar(20), 
+mgr char(2), 
+hireDate char(10) not null, 
+sale int(4) not null, 
+commission int(4), 
+deptNo int(2), 
+primary key(seq_no, empNo)
+);
+
+// 사원 데이터
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1001, '김사랑', '사원', '13', '2007-03-01', 300, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1002, '한예슬', '대리', '05', '2007-04-02', 250,   80, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1003, '오지호', '과장', '05', '2005-02-10', 500,  100, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1004, '이병헌', '부장', '08', '2003-09-02', 600, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1005, '신동엽', '과장', '05', '2005-04-07', 450,  200, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1006, '장동건', '부장', '08', '2003-10-09', 480, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1007, '이문세', '부장', '08', '2004-01-08', 520, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1008, '감우성', '차장', '03', '2004-03-08', 500,    0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1009, '안성기', '사장', '', '1996-10-04',1000, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1010, '이병헌', '과장', '03', '2005-04-07', 500, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1011, '조향기', '사원', '07', '2007-03-01', 280, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1012, '강혜정', '사원', '06', '2007-08-09', 300, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1013, '박중훈', '부장', '03', '2002-10-09', 560, 0, 20);
+insert into employee (empNo, empName, job, mgr, hireDate, sale, commission, deptNo) values (1014, '조인성', '사원', '06', '2007-11-09', 250, 0, 20);
