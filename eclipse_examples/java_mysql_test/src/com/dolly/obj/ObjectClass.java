@@ -1,5 +1,5 @@
 package com.dolly.obj;
-// 하나의 레코드를 객체회시키는 클래스
+// 하나의 레코드를 객체화시키는 클래스
 
 //필드명
 //empNo  : 사원 고유번호
@@ -14,6 +14,7 @@ public class ObjectClass {
 
 	public ObjectClass() {
 		// TODO Auto-generated constructor stub
+		
 	}
 
 }
