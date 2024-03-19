@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>첫 화면</title>
+</head>
+
+<body>
+<!-- 서버로 입력 데이터 값 전송하려면 무조건 name 지정해줘야함 -->
+	<form action="formtest" method="post">
+		<fieldset>
+			<legend>아이디 / 비밀번호 입력 (*필수)</legend>
+			<input type="text" name="ID" required="required" placeholder="아이디입력" > <br />
+			<input type="password" name="PW" required="required" placeholder="비밀번호 입력" >
+			
+		</fieldset>
+		
+		<fieldset>
+			<legend>성별/취미 (선택)</legend>
+			<input type="radio" value="M" name="rButton" >남자 <br>
+			<input type="radio" value="F" name="rButton" >여자 <br>
+			<br>
+			<input type="checkbox" value="c1" name="chk">등산 <br>
+			<input type="checkbox" value="c2" name="chk">여행 <br>
+			<input type="checkbox" value="c3" name="chk">서핑 <br>
+		</fieldset>
+		
+		<fieldset>
+			<legend>HTML5만 지원</legend>
+			<input type="date" name="date" >
+			<input type="color" name="color" >
+			<input type="email" name="email" required="required"  > <!-- 여기서 required="required"는 유효성 검사 -->
+			<input type="url" name="url" required="required" >
+			<input type="range" name="range" min="0" max="10" step="2" >
+			<input type="number" name="number" min="10" max="100" step="10" >
+		</fieldset>
+		
+		<fieldset>
+			<legend>콤보박스 / 리스트 메뉴</legend>
+			<select name="selone">
+				<option value="1">02</option>
+				<option value="2">031</option>
+				<option value="3">032</option>
+				<option value="4">064</option>
+			</select>
+			
+			<select size="3" name="seltwo">
+				<option value="1">검색</option> <!-- size는 한번에 보여줄 개수를 뜻함 -->
+				<option value="2">이름</option>
+				<option value="3">내용</option>
+				<option value="4">작성자</option>
+			</select>
+		</fieldset>
+		
+		<fieldset>
+			<legend>여러 줄 입력</legend>
+			<textarea rows="5" cols="100" name="textarea"></textarea> <!-- 시작 태그와 닫는 태그가 분리되어 있음 -->
+		</fieldset>
+		
+		<fieldset>
+			<legend>입력 글자 수 제한</legend>
+			<input type="text" name="txt" maxlength="5" > <!-- 주로 id나 이름, 주민번호 입력할 때 maxlength로 제한 검 -->
+		</fieldset>
+		
+		<fieldset>
+			<legend>보이지 않는 input</legend>
+			<input type="hidden" name="hidden" value="5" > <!-- 화면에 보여지지는 않지만 엄청나게 많이 쓰임 -->
+			<!-- input 태그의 기본값을 설정하기 위해서는 value를 사용할 수 있음 -->
+		</fieldset>
+		
+		<input type="submit" value="서버전송">
+		
+	</form>
+</body>
+</html>
