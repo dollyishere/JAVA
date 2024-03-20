@@ -35,6 +35,8 @@ public class DispatcherServlet extends HttpServlet {
 			cmd = request.getParameter("command");
 			
 			switch(cmd) {
+				
+				
 				"L":
 					rd = request.getRequestDispatcher("list.jsp");
 					request.setAttribute("lists", list.list());

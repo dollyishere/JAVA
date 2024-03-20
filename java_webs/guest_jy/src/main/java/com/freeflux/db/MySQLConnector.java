@@ -1,0 +1,106 @@
+package com.freeflux.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/** Connection class **/
+public class MySQLConnector {
+	private final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+
+	private final String DB_URL = "jdbc:mysql://localhost:3306/";
+	private final String DB_NAME = "test";
+	private final String DB_MYSQL = DB_URL + DB_NAME;
+	private final String MYSQL_ID = "root";
+	private final String MYSQL_PW = "1234";
+	
+	private Connection connector = null;
+
+	public MySQLConnector() {
+	}
+
+	public Connection connect() {
+		if (this.connector == null) {
+			try {
+				Class.forName(DB_DRIVER);
+				this.connector = DriverManager.getConnection(DB_MYSQL, MYSQL_ID, MYSQL_PW);
+			} catch (ClassNotFoundException | SQLException e) {
+				System.err.println("MySQLConnector() ERR : " + e.getMessage());
+			}
+
+		}
+		return this.connector;
+
+	}
+
+	public void close(Connection connector) {
+		if (connector != null) {
+			try {
+				connector.close();
+			} catch (SQLException e) {
+				System.err.println("Connection CLOSE ERR : " + e.getMessage());
+			}
+		}
+	}
+
+	public void close(Connection connector, Statement stmt, ResultSet rs) {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (connector != null) {
+				connector.close();
+			}
+		} catch (SQLException e) {
+			System.err.println("Connection, Statement, ResultSet CLOSE ERR : " + e.getMessage());
+		}
+	}
+	
+	public void close(Connection connector, PreparedStatement pstmt, ResultSet rs) {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (connector != null) {
+				connector.close();
+			}
+		} catch (SQLException e) {
+			System.err.println("Connection, PreparedStatement, ResultSet CLOSE ERR : " + e.getMessage());
+		}
+	}
+	
+	public void close(Connection connector, PreparedStatement pstmt) {
+		try {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (connector != null) {
+				connector.close();
+			}
+		} catch (SQLException e) {
+			System.err.println("Connection, PreparedStatement CLOSE ERR : " + e.getMessage());
+		}
+	}
+	
+	public void close(Connection connector, Statement stmt) {
+		try {
+			if (connector != null) {
+				stmt.close();
+			}
+			if (connector != null) {
+				connector.close();
+			}
+		} catch (SQLException e) {
+			System.err.println("Connection, Statement CLOSE ERR : " + e.getMessage());
+		}
+	}
+}
