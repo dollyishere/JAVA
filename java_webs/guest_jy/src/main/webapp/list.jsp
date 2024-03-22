@@ -15,10 +15,11 @@
 			// alert 반드시 문자열로 시작해야 함
 			// 경고창이 뜬 상태에서는 아예 내부 컨텐츠를 사용하는 것이 불가함 (코드 자체가 아예 일시정지)
 			alert("글쓰기 버튼 클릭");
-			
 			document.location="write.jsp";
 			
 		}
+		
+		
 	</script>
 </head>
 <body>
