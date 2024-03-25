@@ -5,9 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>fmt_input.jsp: 한글 입력</title>
 </head>
 <body>
-
+	<form action="fmt_result.jsp" method="post">
+		<input type="text" maxlength="5" name="text" placeholder="한글입력" required>
+		<input type="submit" value="전송">
+	</form>
 </body>
 </html>
