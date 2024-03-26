@@ -54,6 +54,7 @@ public class EncoderFilter implements Filter { // 잘못 import하면 오류남
 		// 구현받은 doFilter 메서드는, 어떤 요청이 들어왔을 때 자동으로 호출되는 메서드임
 		// doFilter의 세번째 파라미터는 FilterChain인데, 얘가 가지고 있는 doFilter 메서드가 또 있음
 		// 따라서 위의 doFilter는 우리가 재정의한 doFilter가 아니라 chain 자체의 doFilter임
+		
 		/*****/
 		// 요청에 따른 필터 시작 (처리한 후)
 		long end = System.currentTimeMillis();
