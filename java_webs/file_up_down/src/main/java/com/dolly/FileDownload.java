@@ -41,6 +41,7 @@ public class FileDownload extends HttpServlet {
 	 * 2. response에서 OutputStream 객체
 	 * 3. 파일을 다운로드
 	 * 4. 버퍼를 이용하여 파일에서 버퍼로 데이터를 읽어 한번에 출력...
+	 * 
 	 * **/
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
