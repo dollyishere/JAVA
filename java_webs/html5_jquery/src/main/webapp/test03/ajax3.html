@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>ajax 아이디 중복 확인: ajax3.html</title>
+	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script>
+		function duplicate(){
+			var _id = $("#t_id").val();
+			
+			$.ajax({
+				type: "post",
+				async: false,
+				url: "http://localhost:9000/html5_jquery/mem",
+				dataType:"text",
+				data: {id:_id},
+				
+				success: function(data, textStatus) {
+					alert(data); // usable : 사용 가능 아이디일 시
+					
+					if(data == "usable") {
+						$("#message").text("사용 가능한 ID입니다.");
+					} else {
+						$("#message").text("종복된 ID입니다.");
+					}
+				},
+				error: function(data, textStatus) {
+					alert("에러 발생!!!");
+				},
+				complete: function(data, textStatus) {
+					alert("작업 완료~~~");
+				}
+			});
+		}
+	</script>
 </head>
 <body>
-
+	아이디 : <input type="text" id="t_id" required>
+	<input type="button" id="duplicate" value="ID 중복 확인" onclick="duplicate()">
+	<div id="message"></div>
 </body>
 </html>

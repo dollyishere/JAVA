@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>ajax 연습2 xml 전송: ajax2.html</title>
+	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script>
+		function process() {
+			// $ : jQuery 객체를 의미
+			$.ajax({
+				type: "post",
+				async: false,
+				url:"http://localhost:9000/html5_jquery/ajaxTest2",
+				dataType:"xml",
+				// each => for이랑 같은 일 해줌
+				// 내부에 여러개를 처리할 수 있는 함수가 위치
+				success: function(info, textStatus) {
+					// $(info): <main><book>~~~</book><book>~~~</book><book>~~~</book></main>
+					// .find("book") : <book>~~~</book>
+					// each(function(){}); for( : ){}와 거의 같음
+					$(info).find("book").each(function() { // <book>~~~</book>
+						// $(this) : <book>~~~</book>
+						// .find("title") : <title>~~~</title>
+						// .text() 텍스트 추출
+						var title = $(this).find("title").text();
+						var writer = $(this).find("writer").text();
+						var image = $(this).find("image").text();
+						
+						$('#bookinfo').append(
+							"<p>" + title + "</p>" +
+							"<p>" + writer + "</p>" +
+							"<img src=" + image + " />"
+						);
+					}); // each() end
+				},
+				error:function(data, textStatus) {
+					alert("에러 발생!!!");
+				},
+				complete:function(data, textStatus) {
+					alert("작업완료");
+				}
+			});
+		}
+	</script>
 </head>
 <body>
-
+	<input type="button" value="도서정보" onclick="process()">
+	<div id="bookinfo"></div> <!-- 서버로부터 응답 메시지 출력 -->
 </body>
 </html>

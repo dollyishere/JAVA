@@ -1,4 +1,4 @@
-package com.dolly.ajax;
+package com.dolly.dao;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ajaxTest1")
-public class AjaxTest1 extends HttpServlet {
+/**
+ * Servlet implementation class MemberServlet
+ */
+@WebServlet("/mem")
+public class MemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,15 +24,21 @@ public class AjaxTest1 extends HttpServlet {
 		doHandle(request, response);
 	}
 	
-	private void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String param = (String) request.getParameter("param");
-		
-		System.out.println("param ==> " + param);
-		
-		response.setContentType("text/html;charset=utf-8");
+		response.setContentType("text/html; charset=utf-8");
 		
 		PrintWriter out = response.getWriter();
-		out.print(param);
+		
+		String id = request.getParameter("id");
+		MemberDAO member = new MemberDAO();
+		boolean result = member.overlappedID(id);
+		
+		if (result == true) { // result가 true면 기존 id
+			out.write("not_usable");
+		} else {
+			out.write("usable");
+		}
 	}
+
 }
